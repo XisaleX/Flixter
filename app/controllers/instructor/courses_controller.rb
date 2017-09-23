@@ -11,7 +11,7 @@ class Instructor::CoursesController < ApplicationController
     if @course.valid?
       redirect_to instructor_course_path(@course)
     else
-      render :new, status :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -22,6 +22,6 @@ class Instructor::CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(@course).permit(:title, :description, :cost)
+    params.require(:course).permit(:title, :description, :cost)
   end
 end
